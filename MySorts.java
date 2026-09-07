@@ -1,21 +1,21 @@
-/**
- * MySort.java
- * Implements Insert Sort, Select Sort, Quick Sort, and Merge Sort.
- * Quick Sort and Merge Sort use recursive helper methods.
- */
+
+//  MySort.java
+//  Implements Insert Sort, Select Sort, Quick Sort, and Merge Sort.
+//  Quick Sort and Merge Sort use recursive helper methods.
+
 public class MySorts
 {
-    // ---------------------------------------------------------
     // INSERT SORT
-    // ---------------------------------------------------------
     public static void insertSort(int[] arr)
     {
         for (int i = 1; i < arr.length; i++)
         {
             int key = arr[i];
             int j = i - 1;
+
             // Shift elements of arr[0..i-1] that are greater than key
             // one position ahead of their current position
+
             while (j >= 0 && arr[j] > key)
             {
                 arr[j + 1] = arr[j];
@@ -25,9 +25,7 @@ public class MySorts
         }
     }
 
-    // ---------------------------------------------------------
     // SELECT SORT
-    // ---------------------------------------------------------
     public static void selectSort(int[] arr)
     {
         int n = arr.length;
@@ -41,7 +39,9 @@ public class MySorts
                     minIndex = j;
                 }
             }
+
             // Swap the found minimum element with arr[i]
+
             if (minIndex != i)
             {
                 int temp = arr[i];
@@ -51,9 +51,8 @@ public class MySorts
         }
     }
 
-    // ---------------------------------------------------------
     // QUICK SORT (public entry point)
-    // ---------------------------------------------------------
+
     public static void quickSort(int[] arr)
     {
         if (arr.length > 1)
@@ -66,6 +65,7 @@ public class MySorts
     // Uses the last element as the pivot and partitions the array
     // so everything <= pivot is on the left, everything > pivot on the right.
     // Returns the final index of the pivot element.
+
     private static int pivot(int[] arr, int begin, int end)
     {
         int pivotValue = arr[end];
@@ -83,6 +83,7 @@ public class MySorts
         }
 
         // place the pivot value in its correct sorted position
+
         int temp = arr[i + 1];
         arr[i + 1] = arr[end];
         arr[end] = temp;
@@ -92,6 +93,7 @@ public class MySorts
 
     // quick sort recursive version
     // sort the portion of the given array arr, from begin to end
+
     private static void quickSortRecursive(int[] arr, int begin, int end)
     {
         if (begin < end)
@@ -102,9 +104,8 @@ public class MySorts
         }
     }
 
-    // ---------------------------------------------------------
     // MERGE SORT (public entry point)
-    // ---------------------------------------------------------
+
     public static void mergeSort(int[] arr)
     {
         if (arr.length > 1)
@@ -115,6 +116,7 @@ public class MySorts
 
     // merge sort recursive version
     // sort the portion of the given array arr, from begin to end
+
     private static void mergeSortRecursive(int[] arr, int begin, int end)
     {
         if (begin < end)
@@ -127,8 +129,8 @@ public class MySorts
     }
 
     // merge method
-    // merge two sorted portions of given array arr, namely, from start to middle
-    // and from middle + 1 to end into one sorted portion, namely, from start to end
+    // merge two sorted portions of given array arr, namely, from start to middle and from middle + 1 to end into one sorted portion, namely, from start to end
+
     private static void merge(int[] arr, int start, int middle, int end)
     {
         int n1 = middle - start + 1; // size of left half
@@ -160,7 +162,8 @@ public class MySorts
             k++;
         }
 
-        // copy remaining elements of leftArr, if any
+        // copy remaining elements of left Arr, if there is any
+
         while (i < n1)
         {
             arr[k] = leftArr[i];
@@ -168,7 +171,8 @@ public class MySorts
             k++;
         }
 
-        // copy remaining elements of rightArr, if any
+        // copy remaining elements of rightArr, if there is any
+        
         while (j < n2)
         {
             arr[k] = rightArr[j];
